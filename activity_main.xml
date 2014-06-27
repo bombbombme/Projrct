@@ -1,0 +1,96 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/FrameLayout1"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	tools:context="com.example.device.MainActivity$PlaceholderFragment" >
+	
+    <!-- Relative設計畫面
+    	上(抽屜) 右上(save) 右下(抽屜) -->
+    
+	<RelativeLayout
+		android:id="@+id/RelativeLayout1"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+		
+		<!-- 工具列抽屜 -->
+		<SlidingDrawer
+			android:id="@+id/sd_top"
+			android:layout_width="400dp"
+			android:layout_height="50dp"
+			android:layout_alignParentLeft="true"
+			android:layout_alignParentTop="true"
+			android:content="@+id/content_t"
+			android:handle="@+id/handle_t"
+			android:rotation="180" >
+			
+			<Button
+				android:id="@+id/handle_t"
+				android:layout_width="30dp"
+				android:layout_height="20dp"
+				android:background="#EEDFCC"
+				android:text="" />
+			
+			<!-- 用relative來排列工具 -->
+			<RelativeLayout
+				android:id="@+id/content_t"
+				android:layout_width="100dp"
+				android:layout_height="wrap_content"
+				android:background="#EEDFCC" >
+				<ImageButton
+					android:id="@+id/newpic"
+					android:layout_width="20dp"
+					android:layout_height="40dp"
+					android:layout_alignParentBottom="true"
+					android:layout_alignParentRight="true"
+					android:background="#00000000"
+					android:src="@drawable/newpic"
+					android:scaleType="fitXY" />
+			</RelativeLayout>
+		</SlidingDrawer>
+		
+
+		<!-- SAVE按鈕 -->
+		<ImageButton
+			android:id="@+id/save"
+			android:layout_width="900dp"
+			android:layout_height="75dp"
+			android:layout_alignBaseline="@+id/sd_top"
+			android:layout_alignParentTop="true"
+			android:layout_alignParentRight="true"
+			android:layout_toRightOf="@+id/sd_top"
+			android:background="#00000000"
+			android:src="@drawable/save"
+			android:scaleType="fitXY"
+		/>
+		
+		<!-- 圖形抽屜 -->
+		<SlidingDrawer
+			android:id="@+id/sd_right"
+			android:layout_width="300dp"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/save"
+			android:layout_alignParentRight="true"
+			android:content="@+id/content_r"
+			android:handle="@+id/handle_r"
+			android:orientation="horizontal" >
+			
+			<Button
+				android:id="@+id/handle_r"
+				android:layout_width="20dp"
+				android:layout_height="30dp"
+				android:background="#EEDFCC" />
+				
+			<!-- 用relative來排列工具 -->
+			<RelativeLayout
+				android:id="@+id/content_r"
+				android:layout_width="148dp"
+				android:layout_height="100dp"
+				android:layout_gravity="right"
+				android:background="#EEDFCC"
+				android:gravity="right" >
+			</RelativeLayout>
+		</SlidingDrawer>
+	</RelativeLayout>
+
+</FrameLayout>
